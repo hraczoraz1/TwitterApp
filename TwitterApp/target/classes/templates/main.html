@@ -1,35 +1,37 @@
-<!DOCTYPE html>  
-<html lang="en">  
-<head>  
-  <title>Twitter App</title>  
-    
-  <meta name="viewport" content="width=device-width, initial-scale=1">  
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">  
-</head>  
-body>
-    ...
-    <div th:replace="fragments/header :: header">
-      <!-- ============================================================================ -->
-      <!-- This content is only used for static prototyping purposes (natural templates)-->
-      <!-- and is therefore entirely optional, as this markup fragment will be included -->
-      <!-- from "fragments/header.html" at runtime.                                     -->
-      <!-- ============================================================================ -->
-      <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="#">Static header</a>
-          </div>
-          <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Home</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div>
-      	This is the first phase of the app.  I hope to have this app retrieve tweets for a user via Twitter API<br>
-      	and count the top 10 words the users uses.  More features will be added later...hopefully!
-      </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>TwitterApp</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">  
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">  
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+<div th:replace="fragments/header :: header">...</div>
+<div class="container-fluid">
+    <div class="jumbotron">
+        <h1>Twitter Project Application</h1>
+        <p class="lead">This app uses the Twitter API to perform some operation(s).</p>
+        <p><a href="https://www.twitter.com" target="_blank" class="btn btn-success btn-lg">Visit Twitter</a></p>
     </div>
-  </body>
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Find Top 10 words used by a user</h2>
+            <p>This will find top 10 words used by a twitter user</p>
+            <p><a href="JAVA_STUFF_FOR_THIS" target="_blank" class="btn btn-success">JAVA_STUFF FOR THIS BUTTON</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Future</h2>
+            <p>Future</p>
+        </div>
+    </div>
+    <hr>
+    <footer>
+    </footer>
+</div>
+</body>
 </html>

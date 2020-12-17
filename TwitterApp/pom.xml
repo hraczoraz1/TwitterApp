@@ -21,10 +21,6 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jdbc</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 		<dependency>
@@ -42,6 +38,17 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+    		<groupId>org.twitter4j</groupId>
+    		<artifactId>twitter4j-stream</artifactId>
+    		<version>4.0.6</version>
+    		
+		</dependency>
+		<dependency>
+   			<groupId>org.springframework.social</groupId>
+   			<artifactId>spring-social-twitter</artifactId>
+   			<version>1.1.0.RELEASE</version>
 		</dependency>
 	</dependencies>
 
