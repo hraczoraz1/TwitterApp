@@ -5,7 +5,8 @@ import java.util.List;
  
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
- 
+
+import twitter4j.Paging;
 import twitter4j.ResponseList;
 import twitter4j.Status;
 import twitter4j.Twitter;
@@ -17,10 +18,13 @@ public class TweetService {
     @Autowired
     private Twitter twitter;
  
-    public List<String> getLatestTweets(){
+    public List<String> getLatestTweets(String string){
         List<String> tweets = new ArrayList<>();
         try {
-            ResponseList<Status> userTimeLine = twitter.getUserTimeline("@KidFriendlyDC");
+        	Paging page = new Paging (1, 100);//page number, number per page
+        	
+            ResponseList<Status> userTimeLine = twitter.getUserTimeline(string, page);
+            
             for (Status status : userTimeLine) {
                 tweets.add(status.getText());
             }

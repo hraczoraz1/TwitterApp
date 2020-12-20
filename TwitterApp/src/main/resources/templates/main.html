@@ -9,6 +9,7 @@
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">  
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 </head>
 <body>
 <div th:replace="fragments/header :: header">...</div>
@@ -21,11 +22,22 @@
     <div class="row">
         <div class="col-md-4">
             <h2>Find Top 10 words used by a user</h2>
-            <p>This will find top 10 words used by a twitter user</p>
-            <p><a href="JAVA_STUFF_FOR_THIS" target="_blank" class="btn btn-success">JAVA_STUFF FOR THIS BUTTON</a></p>
+            <p>Get Last 100 Tweets</p>
+            <form th:action="@{/userTweets}" th:object="${project}" method="post">
+            <p><input type="submit" value="Submit"/></p>
+            </form>
         </div>
         <div class="col-md-4">
-            <h2>Future</h2>
+            <h2>Get Last 100 Tweets</h2>
+            <form action="#" th:action="@{/inputUser_Get_100_tweets}" th:object="${request}" method="POST">
+             <table>
+                <tr>
+					<p>USER: <input type="text" th:field="*{user}" /></p>
+        			
+        			<p><input type="submit" value="Submit" />
+                </tr>
+            </table>
+        </form:form>
             <p>Future</p>
         </div>
     </div>

@@ -9,8 +9,16 @@
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">  
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 </head>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+}
+</style>
 <body>
 <div th:replace="fragments/header :: header">...</div>
 <div class="container-fluid">
@@ -19,28 +27,12 @@
         <p class="lead">This app uses the Twitter API to perform some operation(s).</p>
         <p><a href="https://www.twitter.com" target="_blank" class="btn btn-success btn-lg">Visit Twitter</a></p>
     </div>
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Find Top 10 words used by a user</h2>
-            <p>Get Last 100 Tweets</p>
-            <form th:action="@{/userTweets}" th:object="${project}" method="post">
-            <p><input type="submit" value="Submit"/></p>
-            </form>
-        </div>
-        <div class="col-md-4">
-            <h2>Get Last 100 Tweets</h2>
-            <form action="#" th:action="@{/inputUser_Get_100_tweets}" th:object="${request}" method="POST">
-             <table>
-                <tr>
-					<p>USER: <input type="text" th:field="*{user}" /></p>
-        			
-        			<p><input type="submit" value="Submit" />
-                </tr>
-            </table>
-        </form:form>
-            <p>Future</p>
-        </div>
-    </div>
+    <table border="1" cellpadding="10px">
+    	<tr th:each="userTweet: ${userTweets}" >
+    		<td th:text = "${userTweet}">
+    		
+    	</tr>
+    </table>
     <hr>
     <footer>
     </footer>
