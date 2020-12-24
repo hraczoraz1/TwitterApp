@@ -5,7 +5,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
 import org.apache.catalina.connector.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,19 +42,26 @@ public class mainController {
 		return "main";
 	}
 	
-	@GetMapping("/userTweets")
-    public String userTweetsmapping
-    (Model model) {
-		List<String> userTweets = tweetService.getLatestTweets("@KidFriendlyDC");
-		model.addAttribute("userTweets", userTweets);
+	@PostMapping("/userTweets")
+    public String userTweetsmapping(@ModelAttribute TwitterUser request, Model model) throws TwitterException{
+		LinkedHashMap<String, Integer> topTenUserTweetsWords = tweetService.getTopTenWords(request.getUser());
+		
+		List <String> linksTweeted = tweetService.getLinksTweeted(request.getUser());
+		
+		model.addAttribute("userTweets", topTenUserTweetsWords);
+		model.addAttribute("linksTweeted", linksTweeted);
+		
 		return "userTweets";
 	}
 	
 	@PostMapping("/inputUser_Get_100_tweets")
 	public String inputUserReturn100Tweets(@ModelAttribute TwitterUser request, Model model){
 		List<String> userTweets = tweetService.getLatestTweets(request.getUser());
+		
+		List <String> linksTweeted = tweetService.getLinksTweeted(request.getUser());
 		model.addAttribute("userTweets", userTweets);
-		return "userTweets";
+		model.addAttribute("linksTweeted", linksTweeted);
+		return "100_tweets";
 	}
 	
 }

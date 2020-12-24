@@ -52,25 +52,12 @@ table {
 		<table>
 			<tr>
 				<th>
-					Tweet Counts
+					Last 100 Tweets
 				</th>	
 			<div class="column">
 				<tr th:each="userTweet: ${userTweets}" >
 					<td th:text = "${userTweet}">    				
 			</div>
-		</table>
-		<table>
-			<tr>
-				<th>
-					Links Tweeted
-				</th>
-			</tr>	
-		 	<div class="column">
-				<tr th:each="linkTweeted: ${linksTweeted}" >
-					<td	th:text = "${linkTweeted}">
-					
-				</tr>
-	    	</div>			
 		</table>
 	</div>
     <hr>

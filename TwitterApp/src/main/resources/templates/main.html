@@ -21,9 +21,10 @@
     </div>
     <div class="row">
         <div class="col-md-4">
-            <h2>Find Top 10 words used by a user</h2>
-            <p>Get Last 100 Tweets</p>
-            <form th:action="@{/userTweets}" th:object="${project}" method="post">
+            <h2>Find Top descending word count <br>
+            in the last 100 tweets</h2>
+            <form th:action="@{/userTweets}" th:object="${request}" method="post">
+            <p>USER: <input type="text" th:field="*{user}" /></p>
             <p><input type="submit" value="Submit"/></p>
             </form>
         </div>
@@ -38,7 +39,6 @@
                 </tr>
             </table>
         </form:form>
-            <p>Future</p>
         </div>
     </div>
     <hr>
